@@ -11,11 +11,12 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
-
-
+    filtered_search search1 = new filtered_search();
+    filtered_search search2 = new filtered_search();
+    filtered_search search3 = new filtered_search();
 
     @Test
-    public void addition_isCorrect() throws Exception {
+    public void unit_test1() throws Exception {
         assertEquals(4, 2 + 2);
 
     }
