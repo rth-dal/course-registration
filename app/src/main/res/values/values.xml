@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="faculty_array">
+        <item>CSCI</item>
+        <item>MATH</item>
+    </string-array>
+
+    <string-array name="year_array">
+        <item>First Year</item>
+        <item>Second Year</item>
+        <item>Third Year</item>
+        <item>Fourth Year</item>
+        <item>Fifth Year</item>
+        <item>Six Year</item>
+    </string-array>
+
+</resources>
