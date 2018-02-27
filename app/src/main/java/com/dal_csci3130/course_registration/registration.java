@@ -3,6 +3,7 @@ package com.dal_csci3130.course_registration;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,33 +19,66 @@ public class registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         final EditText password = (EditText) findViewById(R.id.password);
-        EditText username = (EditText) findViewById(R.id.userName);
-        EditText firstName = (EditText) findViewById(R.id.firstName);
-        EditText lastName = (EditText) findViewById(R.id.lastName);
-        EditText email = (EditText) findViewById(R.id.email);
+        final EditText username = (EditText) findViewById(R.id.userName);
+        final EditText firstName = (EditText) findViewById(R.id.firstName);
+        final EditText lastName = (EditText) findViewById(R.id.lastName);
+        final EditText email = (EditText) findViewById(R.id.email);
         Button register = (Button) findViewById(R.id.register);
+        Button cancel = (Button) findViewById(R.id.cancel);
         final TextView passConfirm = (TextView) findViewById(R.id.passConfirm);
         final TextView emailConfirm = (TextView) findViewById(R.id.emailConfirm);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!checkPassword(password.getText().toString()))   {
-                    passConfirm.setText("Password must not be password");
-                } else if(!checkLength(password.getText().toString())) {
-                    passConfirm.setText("Password must be at least 8 characters");
-                } else if(!checkSpecialChar(password.getText().toString())) {
-                    passConfirm.setText("Password must contain a special character");
-                } else if(!checkDigit(password.getText().toString())) {
-                    passConfirm.setText("Password must contain a number");
-                } else if(!checkUpperCase(password.getText().toString())) {
-                    passConfirm.setText("Password must contain uppercase character");
-                } else  {
-                    passConfirm.setText("Password validated!");
-                    startActivity(new Intent(registration.this, ProfileView.class));
+
+                if(validPassword(password.getText().toString())&& !TextUtils.isEmpty(username.getText().toString())&& !TextUtils.isEmpty(firstName.getText().toString())&& !TextUtils.isEmpty(lastName.getText().toString())&& !TextUtils.isEmpty(email.getText().toString()))    {
+                    startActivity(new Intent(registration.this, login.class));
                 }
             }
         });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(registration.this, login.class));
+            }
+        });
+    }
+
+    public boolean validPassword(String pass)   {
+
+        boolean flag;
+        final TextView passConfirm = (TextView) findViewById(R.id.passConfirm);
+
+        if(!checkPassword(pass))   {
+            passConfirm.setText("Password must not be password");
+            flag = false;
+
+        } else if(!checkLength(pass)) {
+            passConfirm.setText("Password must be at least 8 characters");
+            flag = false;
+
+        } else if(!checkSpecialChar(pass)) {
+            passConfirm.setText("Password must contain a special character");
+            flag = false;
+
+        } else if(!checkDigit(pass)) {
+            passConfirm.setText("Password must contain a number");
+            flag = false;
+
+        } else if(!checkUpperCase(pass)) {
+            passConfirm.setText("Password must contain uppercase character");
+            flag = false;
+
+        } else  {
+            passConfirm.setText("Password validated!");
+            flag = true;
+        }
+
+        return flag;
+
     }
 
     public boolean checkPassword(String pass)   {
