@@ -79,6 +79,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.891" />
 
+    <FrameLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+    </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>
 
 
