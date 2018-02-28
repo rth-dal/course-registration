@@ -24,7 +24,7 @@ public class Main2Activity extends AppCompatActivity {
     public int year;
     public int seats;
     public String results;
-    TextView text,text2,text3;
+    TextView text2,text3,text4,text5,text6;
     Button Apply_Button;
 
     @Override
@@ -55,21 +55,25 @@ public class Main2Activity extends AppCompatActivity {
         Filter2=spinner2.getSelectedItem().toString();
         Filter3=spinner3.getSelectedItem().toString();
         //Creates text
-        text =  this.findViewById(R.id.textView6);
-        text2 =  this.findViewById(R.id.textView7);
-        text3 =  this.findViewById(R.id.textView8);
+        text2 =  this.findViewById(R.id.textView2);
+        text3 =  this.findViewById(R.id.textView3);
+        text4 =  this.findViewById(R.id.textView4);
+        text5 =  this.findViewById(R.id.textView5);
+        text6 =  this.findViewById(R.id.textView6);
     }
 
 
 
     public void filterApply(View v){
 
-
+        //parses string input to int
         int year=Integer.parseInt(Filter2);
         int seats=Integer.parseInt(Filter3);
 
         filtered_search search_instance = new filtered_search();
 
         results = search_instance.QUERY_DB(Filter1, year, seats);
+        text6.setText(results);
+
     }
 }

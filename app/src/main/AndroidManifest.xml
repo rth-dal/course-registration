@@ -8,8 +8,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-            <activity android:name="com.dal_csci3130.course_registration.Main2Activity" android:label="Main2Activity">
-                <intent-filter >
+            <activity
+                    android:name=".Main2Activity"
+                    android:label="@string/app_name"
+                    android:theme="@style/AppTheme">
+                <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.LAUNCHER" />
                 </intent-filter>
