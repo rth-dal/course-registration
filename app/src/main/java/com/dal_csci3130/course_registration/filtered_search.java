@@ -1,6 +1,6 @@
 package com.dal_csci3130.course_registration;
 
-/**
+/*
  * Created by padraecrobinson on 2018-02-18.
  * This class is used to neatly package a single search together.
  *
@@ -13,19 +13,13 @@ public class filtered_search {
     private int m_open_spots=0;
 
 
-    /**
-
+    /*
      This method will make an API call to the database.
      We need an onclick action in the UI to trigger this method.
      Elementary error checking implemented, UI needs to catch a "NULL" return.
-
-
-
-                           ------ UNFINISHED ------
-
-
-
+                        ------ UNFINISHED ----
      */
+
     public String[] QUERY_DB(String faculty, int year, int open_spots) {
 
 
@@ -34,21 +28,28 @@ public class filtered_search {
         if (faculty.equals("NULL")) {
             m_faculty = faculty;
         }
-
         if (year > 0 && year < 10) {
             m_year = year;
         }
-
         if( m_open_spots >= 0 && m_open_spots < 600){
             m_year = open_spots;
         }
 
         else {
-
-            search_results = new String[1];
-            search_results[1] = "NULL";
-            return search_results;
+            return null;
         }
+
+        
+
+        /* NEED DB QUERY HERE
+         *
+         *
+         *
+         * ['cid', 'year', 'open_spots', 'waitlist_spots', [PREREQ_LIST] ] <-- shown like this in the results field
+         *
+         * */
+
+
 
     }
 
