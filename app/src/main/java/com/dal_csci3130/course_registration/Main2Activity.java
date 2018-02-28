@@ -61,10 +61,9 @@ public class Main2Activity extends AppCompatActivity {
 
     public void filterApply(View v){
         text.setText(Filter1);
-
         year=Integer.parseInt(Filter2);
         seats=Integer.parseInt(Filter3);
 
-        //filtered_search_instance.QUERY_DB(String faculty, int year, int remaining_seats)
+        //filtered_search_instance.QUERY_DB(String Filter1, int year, int seats)
     }
 }
