@@ -6,6 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.dal_csci3130.course_registration.Course;
+import com.dal_csci3130.course_registration.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 public class CreateCourseActivity extends Activity {
 
 	private Button submitButton;

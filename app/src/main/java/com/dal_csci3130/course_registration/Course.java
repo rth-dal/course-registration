@@ -1,9 +1,9 @@
 package com.dal_csci3130.course_registration;
 
 import com.google.firebase.database.Exclude;
-import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,14 +17,14 @@ public class Course implements Serializable {
 	public  String cred;
 	public  String days;
 	public  String description;
-	public  String end_date;
+	public  String enddate;
 	public  String faculty;
 	public  String location;
-	public  ArrayList<String> pre-req;
+	public ArrayList<String> prereq;
 	public  String professor;
 	public  String rem;
 	public  String section;
-	public  String start_date;
+	public  String startdate;
 	public  String subject;
 	public  String term;
 	public  String time;
@@ -38,9 +38,9 @@ public class Course implements Serializable {
     }
 
     public Course(String WL_Act, String WL_Cap, String WL_Rem, String act,
-	String cap, String cred, String days, String description, String end_date, 
-	String faculty, String location, ArrayList<String> pre-req, String professor,
-	String rem, String section, String start_data, String subject, String term,
+	String cap, String cred, String days, String description, String enddate,
+	String faculty, String location, ArrayList<String> prereq, String professor,
+	String rem, String section, String startdate, String subject, String term,
 	String time, String title, String year){
         this.WL_Act = WL_Act;
 		this. WL_Cap = WL_Cap;
@@ -50,14 +50,14 @@ public class Course implements Serializable {
 		this.cred = cred;
 		this.days = days;
 		this.description = description;
-		this.end_data = end_data;
-		this faculty = faculty;
+		this.enddate = enddate;
+		this.faculty = faculty;
 		this.location = location;
-		this.pre-req = pre-req;
+		this.prereq = prereq;
 		this. professor = professor;
 		this.rem = rem;
 		this.section = section;
-		this.start_data = start_data;
+		this.startdate = startdate;
 		this.subject = subject;
 		this.term = term;
 		this.time = time;
@@ -68,9 +68,26 @@ public class Course implements Serializable {
     @Exclude
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();
+        result.put("WL_Act", WL_Act);
+		result.put("WL_Cap", WL_Cap);
+		result.put("WL_Rem", WL_Rem);
+		result.put("act", act);
+		result.put("cap", cap);
+		result.put("cred", cred);
+		result.put("days", days);
+		result.put("description", description);
+		result.put("enddate", enddate);
         result.put("faculty", faculty);
-        result.put("year", year);
-        result.put("cid", cid);
+        result.put("location", location);
+        result.put("prereq", prereq);
+        result.put("professor", professor);
+        result.put("rem", rem);
+        result.put("section", section);
+        result.put("startdate", startdate);
+        result.put("subject", subject);
+        result.put("term", term);
+        result.put("time", time);
+        result.put("title", year);
 
         return result;
     }

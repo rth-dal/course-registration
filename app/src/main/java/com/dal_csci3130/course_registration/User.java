@@ -4,14 +4,15 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class User implements Serializable {
 	
-	public String e-mail;
+	public String email;
 	public String first_name;
-	public String info;
+	public ArrayList<String> info;
 	public String last_name;
 	public String password;
 	public String username;
@@ -20,9 +21,9 @@ public class User implements Serializable {
     // Default constructor required for calls to DataSnapshot.getValue
     }
 	
-	public User(String e-mail, String first_name, ArrayList<String> info, 
+	public User(String email, String first_name, ArrayList<String> info,
 	String last_name, String password, String username) {
-		this.e-mail = e-mail;
+		this.email = email;
 		this.first_name = first_name;
 		this.info = info;
 		this.last_name = last_name;
@@ -33,7 +34,7 @@ public class User implements Serializable {
 	@Exclude
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();
-        result.put("e-mail", e-mail);
+        result.put("e-mail", email);
         result.put("first_name", first_name);
         result.put("info", info);
 		result.put("last_name", last_name);
