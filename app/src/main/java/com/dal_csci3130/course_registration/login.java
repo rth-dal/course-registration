@@ -12,7 +12,28 @@ import android.widget.Toast;
 public class login extends AppCompatActivity {
 
 
+    private static boolean enabled;
     int attempt_counter = 5;
+
+    public static void setEnabled(boolean enabled) {
+        login.enabled = enabled;
+    }
+
+    public void validUser(String uName, String pass) {
+
+        TextView attempts = (TextView) findViewById(R.id.attempts);
+        attempts.setText(Integer.toString(attempt_counter));
+
+        if(uName.equals("admin") && pass.equals("admin"))   {
+            startActivity(new Intent(login.this, profile.class));
+        }   else  {
+            attempt_counter--;
+            attempts.setText(Integer.toString(attempt_counter));
+            if (attempt_counter == 0) {
+                login.setEnabled(false);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +42,6 @@ public class login extends AppCompatActivity {
 
         final EditText username = (EditText) findViewById(R.id.userName);
         final EditText password = (EditText) findViewById(R.id.password);
-        final TextView attempts = (TextView) findViewById(R.id.attempts);
         Button register = (Button) findViewById(R.id.register);
         final Button login = (Button) findViewById(R.id.login);
 
@@ -38,7 +58,10 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                attempts.setText(Integer.toString(attempt_counter));
+
+                validUser(username.getText().toString(), password.getText().toString());
+
+                /*attempts.setText(Integer.toString(attempt_counter));
 
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
 
@@ -52,7 +75,7 @@ public class login extends AppCompatActivity {
                     if (attempt_counter == 0) {
                         login.setEnabled(false);
                     }
-                }
+                }*/
             }
         });
     }
