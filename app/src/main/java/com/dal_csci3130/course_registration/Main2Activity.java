@@ -17,10 +17,16 @@ import android.widget.ArrayAdapter;
 
 public class Main2Activity extends AppCompatActivity {
 
+    public String Filter1;
+    public String Filter2;
+    public String Filter3;
+
+    Button Apply_Button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_view_results);
+
         //Creation of the spinners used to display the string array filters
         Spinner spinner = (Spinner) findViewById(R.id.spinner2);
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner3);
@@ -37,6 +43,11 @@ public class Main2Activity extends AppCompatActivity {
         spinner.setAdapter(adapter);
         spinner2.setAdapter(adapter2);
         spinner3.setAdapter(adapter3);
+        //Creation of button
+        Apply_Button = (Button) this.findViewById(R.id.applyButton);
+    }
+
+    public void filterApply(View v){
 
     }
 }
