@@ -33,9 +33,9 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_view_results);
         //Creation of the spinners used to display the string array filters
-        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
-        Spinner spinner2 = (Spinner) findViewById(R.id.spinner3);
-        Spinner spinner3 = (Spinner) findViewById(R.id.spinner4);
+        Spinner spinner = findViewById(R.id.spinner2);
+        Spinner spinner2 = findViewById(R.id.spinner3);
+        Spinner spinner3 = findViewById(R.id.spinner4);
         //Calls the array to be displayed
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.faculty_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.year_array, android.R.layout.simple_spinner_item);
@@ -49,22 +49,24 @@ public class Main2Activity extends AppCompatActivity {
         spinner2.setAdapter(adapter2);
         spinner3.setAdapter(adapter3);
         //Creation of button
-        Apply_Button = (Button) this.findViewById(R.id.applyButton);
+        Apply_Button = this.findViewById(R.id.applyButton);
         //Gets filter conditions
         Filter1=spinner.getSelectedItem().toString();
         Filter2=spinner2.getSelectedItem().toString();
         Filter3=spinner3.getSelectedItem().toString();
         //Creates text
-        text = (TextView) this.findViewById(R.id.textView6);
-        text2 = (TextView) this.findViewById(R.id.textView7);
-        text3 = (TextView) this.findViewById(R.id.textView8);
+        text =  this.findViewById(R.id.textView6);
+        text2 =  this.findViewById(R.id.textView7);
+        text3 =  this.findViewById(R.id.textView8);
     }
+
+
 
     public void filterApply(View v){
 
-        text.setText(Filter1);
-        year=Integer.parseInt(Filter2);
-        seats=Integer.parseInt(Filter3);
+
+        int year=Integer.parseInt(Filter2);
+        int seats=Integer.parseInt(Filter3);
 
         filtered_search search_instance = new filtered_search();
 

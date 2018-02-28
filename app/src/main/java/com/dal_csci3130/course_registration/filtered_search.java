@@ -29,9 +29,9 @@ public class filtered_search {
     public String QUERY_DB(String faculty, int year, int open_spots) {
 
 
-        String search_results;
+        String search_results = "";
 
-        if (!faculty==null)) {
+        if (!(faculty==null)) {
             m_faculty = faculty;
         }
         if (year > 0 && year < 10) {
@@ -55,8 +55,7 @@ public class filtered_search {
         //randomize remaining seats and stringify it
         int seats = rn.nextInt(500);
         search_results += Integer.toString(seats) + " seats remaining";
-
-
+        System.out.println(search_results);
         return search_results;
 
 
