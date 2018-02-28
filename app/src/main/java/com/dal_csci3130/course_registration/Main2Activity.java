@@ -23,6 +23,7 @@ public class Main2Activity extends AppCompatActivity {
     public String Filter3;
     public int year;
     public int seats;
+    public String results;
     TextView text,text2,text3;
     Button Apply_Button;
 
@@ -60,11 +61,13 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void filterApply(View v){
-        text.setText(Filter1);
 
+        text.setText(Filter1);
         year=Integer.parseInt(Filter2);
         seats=Integer.parseInt(Filter3);
 
-        //filtered_search_instance.QUERY_DB(String faculty, int year, int remaining_seats)
+        filtered_search search_instance = new filtered_search();
+
+        results = search_instance.QUERY_DB(Filter1, year, seats);
     }
 }
