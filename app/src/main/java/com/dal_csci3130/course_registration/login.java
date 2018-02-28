@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class login extends AppCompatActivity {
+
+
+    int attempt_counter = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +21,9 @@ public class login extends AppCompatActivity {
 
         final EditText username = (EditText) findViewById(R.id.userName);
         final EditText password = (EditText) findViewById(R.id.password);
+        final TextView attempts = (TextView) findViewById(R.id.attempts);
         Button register = (Button) findViewById(R.id.register);
-        Button login = (Button) findViewById(R.id.login);
+        final Button login = (Button) findViewById(R.id.login);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,12 +38,22 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(username.getText().toString().equals("admin")&&password.getText().toString().equals("admin"))    {
+                attempts.setText(Integer.toString(attempt_counter));
+
+                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
 
                     startActivity(new Intent(login.this, profile.class));
+                } else {
+
+                    Toast.makeText(login.this, "User and Password is not correct",
+                            Toast.LENGTH_SHORT).show();
+                    attempt_counter--;
+                    attempts.setText(Integer.toString(attempt_counter));
+                    if (attempt_counter == 0) {
+                        login.setEnabled(false);
+                    }
                 }
             }
         });
-
     }
 }
