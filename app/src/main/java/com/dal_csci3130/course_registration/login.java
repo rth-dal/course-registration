@@ -34,6 +34,7 @@ public class login extends AppCompatActivity {
             if (attempt_counter == 0) {
                 login.setEnabled(false);
             }
+            login.setEnabled(false);
             flag = false;
         }
         return flag;
@@ -63,9 +64,10 @@ public class login extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                validUser(username.getText().toString(), password.getText().toString());
+                //validUser(username.getText().toString(), password.getText().toString());
+                TextView attempts = (TextView) findViewById(R.id.attempts);
 
-                /*attempts.setText(Integer.toString(attempt_counter));
+                attempts.setText(Integer.toString(attempt_counter));
 
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
 
@@ -79,7 +81,7 @@ public class login extends AppCompatActivity {
                     if (attempt_counter == 0) {
                         login.setEnabled(false);
                     }
-                }*/
+                }
             }
         });
     }
