@@ -19,20 +19,24 @@ public class login extends AppCompatActivity {
         login.enabled = enabled;
     }
 
-    public void validUser(String uName, String pass) {
+    public boolean validUser(String uName, String pass) {
 
         TextView attempts = (TextView) findViewById(R.id.attempts);
         attempts.setText(Integer.toString(attempt_counter));
 
+        boolean flag;
         if(uName.equals("admin") && pass.equals("admin"))   {
             startActivity(new Intent(login.this, profile.class));
+            flag = true;
         }   else  {
             attempt_counter--;
             attempts.setText(Integer.toString(attempt_counter));
             if (attempt_counter == 0) {
                 login.setEnabled(false);
             }
+            flag = false;
         }
+        return flag;
     }
 
     @Override
