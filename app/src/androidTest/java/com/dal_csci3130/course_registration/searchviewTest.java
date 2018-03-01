@@ -69,7 +69,8 @@ public class searchviewTest {
                                         0),
                                 0),
                         isDisplayed()));
-        appCompatEditText2.perform(closeSoftKeyboard());
+        closeSoftKeyboard();
+        appCompatEditText2.perform(click());
 
         ViewInteraction appCompatEditText3 = onView(
                 allOf(withId(R.id.password), withText("password"),
@@ -89,7 +90,8 @@ public class searchviewTest {
                                         0),
                                 1),
                         isDisplayed()));
-        appCompatEditText4.perform(closeSoftKeyboard());
+        closeSoftKeyboard();
+        appCompatEditText4.perform(click());
 
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.login), withText("Login"),
@@ -99,6 +101,7 @@ public class searchviewTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -128,6 +131,7 @@ public class searchviewTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton2.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -157,6 +161,7 @@ public class searchviewTest {
                                         0),
                                 4),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatSpinner.perform(click());
 
         ViewInteraction appCompatSpinner2 = onView(
@@ -167,6 +172,7 @@ public class searchviewTest {
                                         0),
                                 4),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatSpinner2.perform(click());
 
         DataInteraction appCompatCheckedTextView = onData(anything())
@@ -174,6 +180,7 @@ public class searchviewTest {
                         withClassName(is("android.widget.PopupWindow$PopupBackgroundView")),
                         0))
                 .atPosition(2);
+        closeSoftKeyboard();
         appCompatCheckedTextView.perform(click());
 
         ViewInteraction textView2 = onView(
@@ -195,6 +202,7 @@ public class searchviewTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton3.perform(click());
 
         ViewInteraction textView3 = onView(

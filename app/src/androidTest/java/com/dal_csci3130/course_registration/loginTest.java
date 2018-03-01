@@ -53,6 +53,7 @@ public class loginTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -72,6 +73,7 @@ public class loginTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton2.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -91,6 +93,7 @@ public class loginTest {
                                         0),
                                 0),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatEditText.perform(click());
 
         ViewInteraction appCompatEditText2 = onView(
@@ -101,6 +104,7 @@ public class loginTest {
                                         0),
                                 0),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatEditText2.perform(click());
 
         ViewInteraction appCompatEditText3 = onView(
@@ -111,6 +115,8 @@ public class loginTest {
                                         0),
                                 0),
                         isDisplayed()));
+
+        closeSoftKeyboard();
         appCompatEditText3.perform(longClick());
 
         // Added a sleep statement to match the app's execution delay.
@@ -130,6 +136,7 @@ public class loginTest {
                                         0),
                                 0),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatEditText4.perform(click());
 
         ViewInteraction appCompatEditText5 = onView(
@@ -140,6 +147,7 @@ public class loginTest {
                                         0),
                                 0),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatEditText5.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -179,6 +187,7 @@ public class loginTest {
                                         0),
                                 1),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatEditText8.perform(click());
 
         // Added a sleep statement to match the app's execution delay.
@@ -220,6 +229,7 @@ public class loginTest {
                                         0),
                                 2),
                         isDisplayed()));
+        closeSoftKeyboard();
         appCompatButton3.perform(click());
 
     }
