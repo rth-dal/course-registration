@@ -19,9 +19,9 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //this will not work yet
-                //need to merge with search_view since Main2Activity doesnt exist in profile
-                //startActivity(new Intent(profile.this, Main2Activity.class));
+
+
+                startActivity(new Intent(profile.this, Main2Activity.class));
             }
         });
     }
