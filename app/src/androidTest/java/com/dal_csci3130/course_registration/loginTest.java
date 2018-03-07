@@ -219,7 +219,7 @@ public class loginTest {
                         isDisplayed()));
         appCompatEditText10.perform(closeSoftKeyboard());
 
-        pressBack();
+
 
         ViewInteraction appCompatButton3 = onView(
                 allOf(withId(R.id.login), withText("Login"),
@@ -232,6 +232,7 @@ public class loginTest {
         closeSoftKeyboard();
         appCompatButton3.perform(click());
 
+        pressBack();
     }
 
     private static Matcher<View> childAtPosition(
