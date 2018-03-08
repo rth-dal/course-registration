@@ -32,11 +32,4 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-TestReport {
-    reports {
-        xml.enabled true
-        html.enabled false
-    }
-}
 
-check.dependsOn TestReport
