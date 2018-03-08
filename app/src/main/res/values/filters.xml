@@ -6,6 +6,33 @@
         <item>MATH</item>
     </string-array>
 
+    <string-array name="faculty_array2">
+        <item></item>
+        <item>BCS</item>
+        <item>BACS</item>
+        <item>BSC</item>
+        <item>BCOMM</item>
+        <item>BA</item>
+    </string-array>
+
+    <string-array name="major_array">
+        <item></item>
+        <item>Computer Science</item>
+        <item>Mathematics</item>
+        <item>Management</item>
+        <item>Political Science</item>
+        <item>Biology</item>
+    </string-array>
+
+    <string-array name="minor_array">
+        <item></item>
+        <item>Computer Science</item>
+        <item>Mathematics</item>
+        <item>Management</item>
+        <item>Political Science</item>
+        <item>Biology</item>
+    </string-array>
+
     <string-array name="year_array">
         <item>1</item>
         <item>2</item>
