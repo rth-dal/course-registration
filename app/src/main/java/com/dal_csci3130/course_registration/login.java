@@ -19,6 +19,11 @@ public class login extends AppCompatActivity {
         login.enabled = enabled;
     }
 
+
+
+    //TODO REFACTOR validUser so that it is more coherent (just checks the uname/pass)
+    //the counter stuff should be implemented in a separate method
+
     public boolean validUser(String uName, String pass) {
 
         TextView attempts = (TextView) findViewById(R.id.attempts);
