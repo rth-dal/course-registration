@@ -1,24 +1,13 @@
 package com.dal_csci3130.course_registration;
-import java.util.Random;
-/*
- * Created by padraecrobinson on 2018-02-18.
- * This class is used to package a single search together.
- *
- */
 
-
-
-
+import java.util.ArrayList;
 
 public class filtered_search {
 
-
-
-    private String m_faculty="NULL";
-    private int m_year=0;
-    private int m_open_spots=0;
-
-
+    private String m_faculty;
+    private int m_year;
+    private int m_open_spots;
+    private DataBase db;
     /*
      This method will make an API call to the database.
      We need an onclick action in the UI to trigger this method.
@@ -26,52 +15,60 @@ public class filtered_search {
                         ------ UNFINISHED ----
      */
 
-    public String QUERY_DB(String faculty, int year, int open_spots) {
-
-
-        String search_results = "";
-
-        if (!(faculty==null)) {
-            m_faculty = faculty;
-        }
-        if (year > 0 && year < 10) {
-            m_year = year;
-        }
-        if( m_open_spots >= 0 && m_open_spots < 600){
-            m_year = open_spots;
-        }
-
-        else {
-            return null;
-        }
-
-        //add the faculty prefix to the courseid
-        search_results += faculty;
-        //randomize the course code (for that year) and stringify it
-        Random rn = new Random();
-        int code_suffix = rn.nextInt(700) + 100;
-        int course_code = year*1000 + code_suffix;
-        search_results +=  Integer.toString(course_code) + " ";
-        //randomize remaining seats and stringify it
-        int seats = rn.nextInt(500);
-        search_results += Integer.toString(seats) + " seats remaining";
-        System.out.println(search_results);
-        return search_results;
-
-
-
-        /* NEED DB QUERY HERE
-         *
-         *
-         *
-         * ['cid', 'year', 'open_spots', 'wait list_spots', [PREREQ_LIST] ] <-- shown like this in the results field
-         *
-         * */
-
-
-
+    public filtered_search() {
+        m_faculty = "";
+        m_year = 0;
+        m_open_spots = 0;
+        db = new DataBase();
+        db.initialize();
     }
 
+    public ArrayList<Course> QUERY_COURSES_DB(String m_faculty, String year, String m_open_spots) {
+
+        ArrayList<Course> results = new ArrayList<Course>();
+        //String results = "";
+        //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
+
+        for (int i=0; i<db.getCourselist().size(); i++) {
+            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "") {
+                if (true) {
+                    if (true) {
+                        //if ((Integer.parseInt(m_open_spots) == Integer.parseInt(db.getCourselist().get(i).getRem())) || (m_open_spots == "0")) {
+                        results.add(db.getCourselist().get(i));
+                    }
+                }
+            }
+        }
+        return results;
+    }
+
+    public User QUERY_USERS_DB(String username, String password) {
+        ArrayList<User> results = new ArrayList<User>();
+
+        for (int i=0; i<db.getUserlist().size(); i++) {
+            if (db.getUserlist().get(i).getUsername() == username) {
+                if (db.getUserlist().get(i).getPassword() == password) {
+                    return db.getUserlist().get(i);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /*
+    public DataBase query_course(DataBase db, ArrayList<String> query, ArrayList<String> variable) {
+        DataBase results = new DataBase();
+        for (int j = 0; j < query.size(); j++)
+            for (int i = 0; i < db.getCourselist().size(); i++) {
+                if (db.getCourselist().get(i).getFaculty() == query.get(j)) {
+                    results.addCourse(db.getCourselist().get(i));
+                }
+            }
+        }
+        return results;
+    }
+    */
 
     /* GETTERS FOR FILTERED_SEARCH. */
     public String getm_faculty(){ return this.m_faculty;}
@@ -82,28 +79,5 @@ public class filtered_search {
     public void setm_faculty(String set_fac){ this.m_faculty = set_fac;}
     public void setm_year(int set_year){this.m_year = set_year;}
     public void setm_open_spots(int set_open_spots){this.m_open_spots = set_open_spots;}
-
-    public void send_error(int err) {
-
-        //this method needs to evoke a UI change to the following string:
-
-        String error_message="NULL";
-
-        if(err==1) { //
-
-
-        }
-
-        if (err==2) {
-
-        }
-
-
-        if (err==3) {
-
-        }
-
-
-    }
 
 }

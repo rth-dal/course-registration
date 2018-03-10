@@ -1,15 +1,15 @@
 package com.dal_csci3130.course_registration;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ArrayAdapter;
-import android.widget.AdapterView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -155,13 +155,24 @@ public class Main2Activity extends AppCompatActivity {
 
     public void filterApply(View v){
 
-        //parses string input to int
-        int year=Integer.parseInt(Filter2);
-        int seats=Integer.parseInt(Filter3);
-        filtered_search search_instance = new filtered_search();
+        //results of query
+        ArrayList<Course> results = new ArrayList<Course>();
+        String tmp_string = "";
 
-        results = search_instance.QUERY_DB(Filter1, year, seats);
-        text6.setText(results);
+        //parses string input to int
+        String year = (Filter2);
+        String seats = (Filter3);
+        String faculty = "CSCI";
+
+        filtered_search search_instance = new filtered_search();
+        results = search_instance.QUERY_COURSES_DB(faculty,year, seats);
+
+        //temporary string conversion of output
+        for (int i = 0; i<results.size();i++) {
+            tmp_string += results.get(i).getFaculty()+results.get(i).getYear()+" "+results.get(i).getRem()+" seats remaining\n";
+        }
+
+        text6.setText(tmp_string);
 
     }
 }
