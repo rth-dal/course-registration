@@ -15,7 +15,6 @@ android:
 before_install:
   - chmod +x gradlew
 script:
-  - gradle assemble
   - ./gradlew assemble
   - ./gradlew build debug assembleAndroidTest
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
