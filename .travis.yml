@@ -16,6 +16,7 @@ before_install:
   - chmod +x gradlew
   - yes | sdkmanager "platforms;android-27"
 script:
+
   - ./gradlew assemble
   - ./gradlew build testDebugUnitTest
   #- echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
