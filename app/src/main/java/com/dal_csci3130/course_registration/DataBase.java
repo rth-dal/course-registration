@@ -85,6 +85,14 @@ public class DataBase implements Serializable {
             */
 	}
 
+	public void updateUser(User user) {
+		//Given a user, change to given user
+	}
+
+	public void updateUser(Course course) {
+		//Given a course, change to given course
+	}
+
 	public void addCourse(Course course) {
 		courselist.add(course);
 	}
