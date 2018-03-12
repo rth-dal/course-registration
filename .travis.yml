@@ -18,7 +18,6 @@ before_install:
 script:
   - ./gradlew assemble
   - ./gradlew build testDebugUnitTest
-  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
-  - bash <(curl -s https://codecov.io/bash)
 after_success:
-
+  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReportDebug;else gradle jacocoTestReport;fi
+  - bash <(curl -s https://codecov.io/bash)
