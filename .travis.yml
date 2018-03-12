@@ -17,7 +17,7 @@ before_install:
   - yes | sdkmanager "platforms;android-27"
 script:
   - ./gradlew assemble
-  - ./gradlew build testDebugUnitTest
+  - ./gradlew build test jacocoTestReportDebug
 after_success:
-  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReportDebug;else gradle jacocoTestReport;fi
+  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReportDebug;else gradle jacocoTestReportDebug;fi
   - bash <(curl -s https://codecov.io/bash)
