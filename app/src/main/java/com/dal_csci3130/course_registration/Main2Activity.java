@@ -170,7 +170,5 @@ public class Main2Activity extends AppCompatActivity {
 
         text6.setText(tmp_string);
 
-        filtered_search update = new filtered_search();
-        update.UPDATE_USER_DB(user);
     }
 }

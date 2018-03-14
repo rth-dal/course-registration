@@ -53,7 +53,7 @@ public class filtered_search {
         filtered_search update = new filtered_search();
         ArrayList<Course> courselist = update.QUERY_COURSES_DB(term, faculty, year, open_spots);
      */
-    public ArrayList<Course> QUERY_COURSES_DB(String term, String m_faculty, String year, String year) {
+    public ArrayList<Course> QUERY_COURSES_DB(String term, String m_faculty, String year, String m_open_spots) {
         ArrayList<Course> results = new ArrayList<Course>();
         //String results = "";
         //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
