@@ -68,8 +68,14 @@ public class DataBase implements Serializable {
 		courselist.add(course2);
 
 
+		ArrayList<Course> current = new ArrayList<Course>();
+		current.add(course1);
+
+		ArrayList<Course> remaining = new ArrayList<Course>();
+		remaining.add(course2);
+
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
-		User user1 = new User("admin@dal.ca", "john", "classes-completed", "classes-current", "classes-remaining", "doe", "admin", "admin");
+		User user1 = new User("admin@dal.ca", "john", null, current, remaining, "doe", "admin", "admin");
 		userlist.add(user1);
 
 		//String file = ReadFromfile("coursefile",null);

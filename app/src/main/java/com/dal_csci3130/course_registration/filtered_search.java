@@ -23,6 +23,36 @@ public class filtered_search {
         db.initialize();
     }
 
+    /* update a course:
+        filtered_search update = new filtered_search();
+        update.UPDATE_COURSE_DB(course);
+     */
+    public void UPDATE_COURSE_DB(Course course) {
+        for (int i = 0; i<db.getCourselist().size(); i++) {
+            if (db.getCourselist().get(i).getFaculty() == course.getFaculty() && db.getCourselist().get(i).getYear() == course.getYear()) {
+                db.getCourselist().remove(i);
+                db.getCourselist().add(course);
+            }
+        }
+    }
+
+    /* update a user:
+        filtered_search update = new filtered_search();
+        update.UPDATE_USER_DB(user);
+     */
+    public void UPDATE_USER_DB(User user) {
+        for (int i = 0; i<db.getCourselist().size(); i++) {
+            if (db.getUserlist().get(i).getUsername() == user.getUsername()) {
+                db.getUserlist().remove(i);
+                db.getUserlist().add(user);
+            }
+        }
+    }
+
+    /* query courses:
+        filtered_search update = new filtered_search();
+        ArrayList<Course> courselist = update.QUERY_COURSES_DB(term, faculty, year, open_spots);
+     */
     public ArrayList<Course> QUERY_COURSES_DB(String term, String m_faculty, String year, String year) {
         ArrayList<Course> results = new ArrayList<Course>();
         //String results = "";
@@ -42,8 +72,11 @@ public class filtered_search {
 
     }
 
+    /* query courses:
+        filtered_search update = new filtered_search();
+        ArrayList<Course> courselist = update.QUERY_COURSES_DB(faculty, year, open_spots);
+    */
     public ArrayList<Course> QUERY_COURSES_DB(String m_faculty, String year, String m_open_spots) {
-
         ArrayList<Course> results = new ArrayList<Course>();
         //String results = "";
         //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
@@ -61,6 +94,10 @@ public class filtered_search {
         return results;
     }
 
+    /* query a user:
+        filtered_search update = new filtered_search();
+        User user = update.QUERY_USERS_DB(username, password);
+     */
     public User QUERY_USERS_DB(String username, String password) {
         ArrayList<User> results = new ArrayList<User>();
 

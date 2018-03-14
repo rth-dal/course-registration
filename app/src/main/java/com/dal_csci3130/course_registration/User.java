@@ -3,6 +3,7 @@ package com.dal_csci3130.course_registration;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,9 +11,9 @@ public class User implements Serializable {
 
 	private String email;
 	private String first_name;
-	private String completed;
-	private String current;
-	private String remaining;
+	private ArrayList<Course> completed;
+	private ArrayList<Course> current;
+	private ArrayList<Course> remaining;
 	private String last_name;
 	private String password;
 	private String username;
@@ -22,7 +23,7 @@ public class User implements Serializable {
 		// Default constructor required for calls to DataSnapshot.getValue
 	}
 
-	public User(String email, String first_name, String completed, String current, String remaining,
+	public User(String email, String first_name, ArrayList<Course> completed, ArrayList<Course> current, ArrayList<Course> remaining,
 				String last_name, String password, String username) {
 		this.email = email;
 		this.first_name = first_name;
@@ -34,12 +35,12 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public String getCompleted() { return completed;}
-	public void setCompleted(String completed) {this.completed=completed;}
-	public String getCurrent() { return completed;}
-	public void setCurrent(String current) {this.current=current;}
-	public String getRemaining() { return completed;}
-	public void setRemaining(String remaining) {this.remaining=remaining;}
+	public ArrayList<Course> getCompleted() { return completed;}
+	public void setCompleted(ArrayList<Course> completed) {this.completed=completed;}
+	public ArrayList<Course> getCurrent() { return completed;}
+	public void setCurrent(ArrayList<Course> current) {this.current=current;}
+	public ArrayList<Course> getRemaining() { return completed;}
+	public void setRemaining(ArrayList<Course> remaining) {this.remaining=remaining;}
 	public String getEmail() {
 		return email;
 	}

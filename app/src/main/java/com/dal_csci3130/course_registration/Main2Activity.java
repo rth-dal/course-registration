@@ -63,7 +63,6 @@ public class Main2Activity extends AppCompatActivity {
         text5 = this.findViewById(R.id.textView5);
         text6 = this.findViewById(R.id.textView6);
 
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -148,10 +147,7 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
-
     }
-
-
 
     public void filterApply(View v){
 
@@ -174,5 +170,7 @@ public class Main2Activity extends AppCompatActivity {
 
         text6.setText(tmp_string);
 
+        filtered_search update = new filtered_search();
+        update.UPDATE_USER_DB(user);
     }
 }
