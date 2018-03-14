@@ -23,6 +23,25 @@ public class filtered_search {
         db.initialize();
     }
 
+    public ArrayList<Course> QUERY_COURSES_DB(String term, String m_faculty, String year, String year) {
+        ArrayList<Course> results = new ArrayList<Course>();
+        //String results = "";
+        //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
+
+        for (int i=0; i<db.getCourselist().size(); i++) {
+            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "") {
+                if (true) {
+                    if (true) {
+                        //if ((Integer.parseInt(m_open_spots) == Integer.parseInt(db.getCourselist().get(i).getRem())) || (m_open_spots == "0")) {
+                        results.add(db.getCourselist().get(i));
+                    }
+                }
+            }
+        }
+        return results;
+
+    }
+
     public ArrayList<Course> QUERY_COURSES_DB(String m_faculty, String year, String m_open_spots) {
 
         ArrayList<Course> results = new ArrayList<Course>();
