@@ -16,7 +16,7 @@ public class userUnitTest {
 
     ArrayList<String> info = new ArrayList<String>();
 
-    User user = new User("email","john","completed-list","current-list","remaining-list","doe","password","johnydoe");
+    User user = new User("email","john",null,null,null,"doe","password","johnydoe");
 
 
     @Test
