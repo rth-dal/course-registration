@@ -1,7 +1,8 @@
 package com.dal_csci3130.course_registration;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,50 +10,32 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class login extends AppCompatActivity {
+import com.google.firebase.database.FirebaseDatabase;
 
-
-    private static boolean enabled;
-    int attempt_counter = 5;
-
-    public static void setEnabled(boolean enabled) {
-        login.enabled = enabled;
-    }
-
-
-
-    //TODO REFACTOR validUser so that it is more coherent (just checks the uname/pass)
-    //the counter stuff should be implemented in a separate method
-
-    public boolean validUser(String uName, String pass) {
-
-        boolean flag;
-
-        if(uName.equals("admin") && pass.equals("admin"))   {
-            flag = true;
-        }   else  {
-            flag = false;
-        }
-
-        return flag;
-    }
-
+public class login extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Get the app wide shared variables
+        AppData appData = (AppData) getApplication();
+
+        //Set-up Firebase
+        appData.firebaseDBInstance = FirebaseDatabase.getInstance();
+        appData.firebaseReference = appData.firebaseDBInstance.getReference("users/");
+
         final EditText username = (EditText) findViewById(R.id.userName);
         final EditText password = (EditText) findViewById(R.id.password);
-        Button register = (Button) findViewById(R.id.register);
+        final Button register = (Button) findViewById(R.id.register);
         final Button login = (Button) findViewById(R.id.login);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(login.this, registration.class));
+                startActivity(new Intent(login.this, CreateUser.class));
 
             }
         });
@@ -83,4 +66,32 @@ public class login extends AppCompatActivity {
             }
         });
     }
+
+    private static boolean enabled;
+    int attempt_counter = 5;
+
+    public static void setEnabled(boolean enabled) {
+        login.enabled = enabled;
+    }
+
+
+
+    //TODO REFACTOR validUser so that it is more coherent (just checks the uname/pass)
+    //the counter stuff should be implemented in a separate method
+
+    public boolean validUser(String uName, String pass) {
+
+        boolean flag;
+
+        if(uName.equals("admin") && pass.equals("admin"))   {
+            flag = true;
+        }   else  {
+            flag = false;
+        }
+
+        return flag;
+    }
+
+
+
 }
