@@ -13,22 +13,26 @@ public class User implements Serializable {
 	private String first_name;
 	private ArrayList<Course> completed;
 	private ArrayList<Course> current;
+	private ArrayList<Course> remaining;
 	private String last_name;
 	private String password;
-	private String bannerID;
+	private String username;
 
 
 	public User() {
 		// Default constructor required for calls to DataSnapshot.getValue
 	}
 
-	public User(String email, String first_name,
-				String last_name, String password, String bannerID) {
+	public User(String email, String first_name, ArrayList<Course> completed, ArrayList<Course> current, ArrayList<Course> remaining,
+				String last_name, String password, String username) {
 		this.email = email;
 		this.first_name = first_name;
+		this.completed = completed;
+		this.current = current;
+		this.remaining = remaining;
 		this.last_name = last_name;
 		this.password = password;
-		this.bannerID = bannerID;
+		this.username = username;
 	}
 
 	public ArrayList<Course> getCompleted() { return completed;}
@@ -36,6 +40,7 @@ public class User implements Serializable {
 	public ArrayList<Course> getCurrent() { return completed;}
 	public void setCurrent(ArrayList<Course> current) {this.current=current;}
 	public ArrayList<Course> getRemaining() { return completed;}
+	public void setRemaining(ArrayList<Course> remaining) {this.remaining=remaining;}
 	public String getEmail() {
 		return email;
 	}
@@ -60,13 +65,24 @@ public class User implements Serializable {
 	public void setPassword(String Password) {
 		this.password = password;
 	}
-	public String getBannerID() {
-		return bannerID;
+	public String getUsername() {
+		return username;
 	}
-	public void setBannerID(String bannerID) {
-		this.bannerID = bannerID;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
+
+	boolean exists() {
+		return true;
+	}
+
+	boolean stringify() {
+
+		System.out.println(this.email+"\n"+this.first_name+"\n"+"\n"+this.last_name+"\n"+this.password+"\n"+this.username);
+
+		return true;
+	}
 
 	@Exclude
 	public Map<String, Object> toMap(){
@@ -75,7 +91,7 @@ public class User implements Serializable {
 		result.put("first_name", first_name);
 		result.put("last_name", last_name);
 		result.put("password", password);
-		result.put("bannerID", bannerID);
+		result.put("username", username);
 
 		return result;
 	}

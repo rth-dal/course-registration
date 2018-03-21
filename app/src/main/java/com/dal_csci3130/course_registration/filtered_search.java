@@ -42,7 +42,7 @@ public class filtered_search {
      */
     public void UPDATE_USER_DB(User user) {
         for (int i = 0; i<db.getCourselist().size(); i++) {
-            if (db.getUserlist().get(i).getBannerID() == user.getBannerID()) {
+            if (db.getUserlist().get(i).getUsername() == user.getUsername()) {
                 db.getUserlist().remove(i);
                 db.getUserlist().add(user);
             }
@@ -72,8 +72,7 @@ public class filtered_search {
 
     }
 
-    /*
-        query courses:
+    /* query courses:
         filtered_search update = new filtered_search();
         ArrayList<Course> courselist = update.QUERY_COURSES_DB(faculty, year, open_spots);
     */
@@ -103,7 +102,7 @@ public class filtered_search {
         ArrayList<User> results = new ArrayList<User>();
 
         for (int i=0; i<db.getUserlist().size(); i++) {
-            if (db.getUserlist().get(i).getBannerID() == username) {
+            if (db.getUserlist().get(i).getUsername() == username) {
                 if (db.getUserlist().get(i).getPassword() == password) {
                     return db.getUserlist().get(i);
                 }

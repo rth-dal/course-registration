@@ -9,27 +9,27 @@ import java.util.Map;
 
 public class Course implements Serializable {
 
-	public String WL_Act;
-	public String WL_Cap;
-	public String WL_Rem;
-	public String act;
-	public String cap;
-	public String cred;
-	public String days;
-	public String description;
-	public String enddate;
-	public String faculty;
-	public String location;
-	public String prereq;
-	public String professor;
-	public String rem;
-	public String section;
-	public String startdate;
-	public String subject;
-	public String term;
-	public String time;
-	public String title;
-	public String year;
+	private String WL_Act;
+	private String WL_Cap;
+	private String WL_Rem;
+	private String act;
+	private String cap;
+	private String cred;
+	private String days;
+	private String description;
+	private String enddate;
+	private String faculty;
+	private String location;
+	private String prereq;
+	private String professor;
+	private String rem;
+	private String section;
+	private String startdate;
+	private String subject;
+	private String term;
+	private  String time;
+	private  String title;
+	private String year;
 
 
 	public Course() {
