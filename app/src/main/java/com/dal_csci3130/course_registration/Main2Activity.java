@@ -187,6 +187,13 @@ public class Main2Activity extends AppCompatActivity {
 
         text6.setText(tmp_string);
 
+        user.setUsername("test");
+
+        /*
+        *   Do stuff to user
+        *   user.setCurrent(courses);
+         */
+
     }
     //This method determines if the user's database profile already has the selected course.
 
@@ -283,5 +290,15 @@ public class Main2Activity extends AppCompatActivity {
         boolean noError = false;
         noError = this.deniedTime(time);
         return noError;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        user.setUsername("test");
+        Intent intent = new Intent();
+        intent.putExtra("user", user);
+        setResult(0, intent);
+        finish();
     }
 }

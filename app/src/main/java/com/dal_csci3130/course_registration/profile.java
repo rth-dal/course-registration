@@ -58,7 +58,9 @@ public class profile extends AppCompatActivity {
 
                 Intent intent = new Intent(profile.this, Main2Activity.class);
                 intent.putExtra("user", user);
-                startActivity(intent);
+                startActivityForResult(intent,0);
+
+
 
             }
         });
@@ -154,5 +156,11 @@ public class profile extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        user = (User) data.getSerializableExtra("user");
     }
 }
