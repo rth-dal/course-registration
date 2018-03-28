@@ -1,11 +1,6 @@
 package com.dal_csci3130.course_registration;
 
 
-import android.content.Context;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -25,39 +20,6 @@ public class DataBase implements Serializable {
 	}
 
 
-
-	public String ReadFromfile(String fileName, Context context) {
-		StringBuilder returnString = new StringBuilder();
-		InputStream fIn = null;
-		InputStreamReader isr = null;
-		BufferedReader input = null;
-		try {
-			fIn = context.getResources().getAssets()
-					.open(fileName, Context.MODE_WORLD_READABLE);
-			isr = new InputStreamReader(fIn);
-			input = new BufferedReader(isr);
-			String line = "";
-			while ((line = input.readLine()) != null) {
-				returnString.append(line);
-			}
-		} catch (Exception e) {
-			e.getMessage();
-		} finally {
-			try {
-				if (isr != null)
-					isr.close();
-				if (fIn != null)
-					fIn.close();
-				if (input != null)
-					input.close();
-			} catch (Exception e2) {
-				e2.getMessage();
-			}
-		}
-		return returnString.toString();
-	}
-
-
 	public void initialize() {
 		////GET ALL DB OBJECTS
 
@@ -66,7 +28,6 @@ public class DataBase implements Serializable {
 
 		courselist.add(course1);
 		courselist.add(course2);
-
 
 		ArrayList<Course> current = new ArrayList<Course>();
 		current.add(course1);
