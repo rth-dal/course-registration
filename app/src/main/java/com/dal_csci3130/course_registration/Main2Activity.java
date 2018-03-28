@@ -167,7 +167,7 @@ public class Main2Activity extends AppCompatActivity {
         //parses string input to int
         String year = (Filter2);
         String seats = (Filter3);
-        String faculty = "CSCI";
+        String faculty = (Filter1);
 
 
         filtered_search search_instance = new filtered_search();
