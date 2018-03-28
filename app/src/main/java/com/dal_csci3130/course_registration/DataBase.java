@@ -26,69 +26,54 @@ public class DataBase implements Serializable {
 
 
 
-	public String ReadFromfile(String fileName, Context context) {
-		StringBuilder returnString = new StringBuilder();
-		InputStream fIn = null;
-		InputStreamReader isr = null;
-		BufferedReader input = null;
-		try {
-			fIn = context.getResources().getAssets()
-					.open(fileName, Context.MODE_WORLD_READABLE);
-			isr = new InputStreamReader(fIn);
-			input = new BufferedReader(isr);
-			String line = "";
-			while ((line = input.readLine()) != null) {
-				returnString.append(line);
-			}
-		} catch (Exception e) {
-			e.getMessage();
-		} finally {
-			try {
-				if (isr != null)
-					isr.close();
-				if (fIn != null)
-					fIn.close();
-				if (input != null)
-					input.close();
-			} catch (Exception e2) {
-				e2.getMessage();
-			}
-		}
-		return returnString.toString();
-	}
-
 
 	public void initialize() {
 		////GET ALL DB OBJECTS
 
-		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile workstyle as a team","04/06","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","winter","14:35-15:55","Software Engineering","3130");
-		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","winter","14:35-15:25","Cryptography","4116");
+		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile workstyle as a team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","winter","14:35-15:55","Software Engineering","3130");
+		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","winter","14:35-15:25","Cryptography","4116");
+		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/08/2018","CSCI","winter","13:05-14:30","Operating Systems","3120");
+		Course course4 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","CSCI","LSC Building","{CSCI2110 : C|CSCI2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
+		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
+		Course course6 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
+		Course course7 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
+		Course course8 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
 
 		courselist.add(course1);
 		courselist.add(course2);
+		courselist.add(course3);
+		courselist.add(course4);
+		courselist.add(course5);
+		courselist.add(course6);
+		courselist.add(course7);
+		courselist.add(course8);
 
 
 		ArrayList<Course> current = new ArrayList<Course>();
 		current.add(course1);
+		current.add(course3);
 
 		ArrayList<Course> remaining = new ArrayList<Course>();
 		remaining.add(course2);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
 		User user1 = new User("admin@dal.ca", "john", null, current, remaining, "doe", "admin", "admin");
-		userlist.add(user1);
 
-		//String file = ReadFromfile("coursefile",null);
-            /*
-            while ((line = bufferedReader.readLine())!= null) {
-                stringBuffer.append(line);
-                String[] splitArray = line.split(";+");
-                Course course = new Course(splitArray[0],splitArray[1],splitArray[2],splitArray[3],splitArray[4],splitArray[5],splitArray[6],splitArray[7],splitArray[8],
-                        splitArray[9],splitArray[10],splitArray[11],splitArray[12],splitArray[13],splitArray[14],splitArray[15],splitArray[16],splitArray[17],splitArray[18],splitArray[19],splitArray[20]);
-                addCourse(course);
-            }
-            fileReader.close();
-            */
+
+		ArrayList<Course> current2 = new ArrayList<Course>();
+		current2.add(course4);
+		current2.add(course5);
+		current2.add(course7);
+
+		ArrayList<Course> remaining2 = new ArrayList<Course>();
+		remaining2.add(course2);
+		remaining2.add(course8);
+
+		User user2 = new User("lolipop@dal.ca","Luke",null,current2,remaining2,"Duke","adri@tIk","B00878787");
+
+		userlist.add(user1);
+		userlist.add(user2);
+
 	}
 
 	public void updateUser(User user) {
