@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
+    //myApplication myapp = (myApplication)getApplication();
+    //User user = myapp.getUser();
+
     public String Filter1, Filter2, Filter3, results;
     public int year, seats;
     ArrayList<Course> courseList = new ArrayList<Course>();
@@ -150,7 +153,6 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void filterApply(View v) {
-
         //results of query
         ArrayList<Course> results = new ArrayList<Course>();
         String tmp_string = "";
@@ -160,13 +162,21 @@ public class Main2Activity extends AppCompatActivity {
         String seats = (Filter3);
         String faculty = "CSCI";
 
+
         filtered_search search_instance = new filtered_search();
+
+        DataBase db = new DataBase();
+        db.initialize();
+        //((myApplication) this.getApplication()).setCourses(db.getCourselist());
+
         results = search_instance.QUERY_COURSES_DB(faculty, year, seats);
 
         //temporary string conversion of output
         for (int i = 0; i < results.size(); i++) {
             tmp_string += results.get(i).getFaculty() + results.get(i).getYear() + " " + results.get(i).getRem() + " seats remaining\n";
         }
+
+        //tmp_string += user.toString();
 
         text6.setText(tmp_string);
 

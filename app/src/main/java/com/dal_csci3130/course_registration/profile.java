@@ -21,6 +21,14 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        Intent i = getIntent();
+        User user = (User) i.getSerializableExtra("user");
+
+        if (user != null) {
+
+        }
+
+
         Button classSearch = (Button) findViewById(R.id.classSearch);
         Spinner facultySpinner = (Spinner) findViewById(R.id.facultyspinner);
         Spinner majorSpinner = (Spinner) findViewById(R.id.majorspinner);
