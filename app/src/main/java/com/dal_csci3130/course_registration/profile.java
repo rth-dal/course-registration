@@ -14,7 +14,7 @@ public class profile extends AppCompatActivity {
     public String Faculty;
     public String Major;
     public String Minor;
-
+    public User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         Intent i = getIntent();
-        User user = (User) i.getSerializableExtra("user");
+        user = (User) i.getSerializableExtra("user");
 
         if (user != null) {
 
@@ -56,8 +56,12 @@ public class profile extends AppCompatActivity {
             public void onClick(View view) {
 
 
+                Intent intent = new Intent(profile.this, Main2Activity.class);
+                intent.putExtra("user", user);
+                startActivityForResult(intent,0);
 
-                startActivity(new Intent(profile.this, Main2Activity.class));
+
+
             }
         });
 
@@ -152,5 +156,11 @@ public class profile extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        user = (User) data.getSerializableExtra("user");
     }
 }

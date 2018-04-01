@@ -1,5 +1,6 @@
 package com.dal_csci3130.course_registration;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
     //User user = myapp.getUser();
 
     public String Filter1, Filter2, Filter3, results;
+    public User user;
     public int year, seats;
     ArrayList<Course> courseList = new ArrayList<Course>();
     TextView text2, text3, text4, text5, text6;
@@ -35,6 +37,11 @@ public class Main2Activity extends AppCompatActivity {
         //Creates the view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_view_results);
+
+        Intent i = getIntent();
+        user = (User) i.getSerializableExtra("user");
+
+
         //Creation of the spinners used to display the string array filters.
         Spinner spinner = findViewById(R.id.spinner2);
         Spinner spinner2 = findViewById(R.id.spinner3);
@@ -160,7 +167,7 @@ public class Main2Activity extends AppCompatActivity {
         //parses string input to int
         String year = (Filter2);
         String seats = (Filter3);
-        String faculty = "CSCI";
+        String faculty = (Filter1);
 
 
         filtered_search search_instance = new filtered_search();
@@ -176,9 +183,16 @@ public class Main2Activity extends AppCompatActivity {
             tmp_string += results.get(i).getFaculty() + results.get(i).getYear() + " " + results.get(i).getRem() + " seats remaining\n";
         }
 
-        //tmp_string += user.toString();
+        tmp_string += user.getUsername();
 
         text6.setText(tmp_string);
+
+        user.setUsername("test");
+
+        /*
+        *   Do stuff to user
+        *   user.setCurrent(courses);
+         */
 
     }
     //This method determines if the user's database profile already has the selected course.
@@ -276,5 +290,15 @@ public class Main2Activity extends AppCompatActivity {
         boolean noError = false;
         noError = this.deniedTime(time);
         return noError;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        user.setUsername("test");
+        Intent intent = new Intent();
+        intent.putExtra("user", user);
+        setResult(0, intent);
+        finish();
     }
 }

@@ -20,11 +20,6 @@ public class DataBase implements Serializable {
 	}
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 028c1b3e571999a14fe46745dd63352d109b7e8b
 	public void initialize() {
 		////GET ALL DB OBJECTS
 
