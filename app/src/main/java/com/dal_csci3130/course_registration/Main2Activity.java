@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -27,10 +28,13 @@ public class Main2Activity extends AppCompatActivity {
     public User user;
     public int year, seats;
     ArrayList<Course> courseList = new ArrayList<Course>();
-    TextView text2, text3, text4, text5, text6;
+    ArrayList<Course> database_results = new ArrayList<Course>();
+    TextView text2, text3, text4, text5;
+    ListView results_List;
     Button Apply_Button;
     Course CSCI3130 = new Course();
     Course CSCI3160 = new Course();
+    public ArrayAdapter results_Adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +73,13 @@ public class Main2Activity extends AppCompatActivity {
         text3 = this.findViewById(R.id.textView3);
         text4 = this.findViewById(R.id.textView4);
         text5 = this.findViewById(R.id.textView5);
-        text6 = this.findViewById(R.id.textView6);
+
+
+        results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, database_results);
+        results_List.setAdapter(results_Adapter);
+
+
         //Adapter of faculty
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -161,38 +171,22 @@ public class Main2Activity extends AppCompatActivity {
 
     public void filterApply(View v) {
         //results of query
-        ArrayList<Course> results = new ArrayList<Course>();
         String tmp_string = "";
 
         //parses string input to int
         String year = (Filter2);
         String seats = (Filter3);
         String faculty = (Filter1);
-
+        ArrayList<Course> tmp_results = new ArrayList<Course>();
 
         filtered_search search_instance = new filtered_search();
 
-        DataBase db = new DataBase();
-        db.initialize();
+
         //((myApplication) this.getApplication()).setCourses(db.getCourselist());
 
-        results = search_instance.QUERY_COURSES_DB(faculty, year, seats);
+        tmp_results = search_instance.QUERY_COURSES_DB(faculty, year, seats);
 
-        //temporary string conversion of output
-        for (int i = 0; i < results.size(); i++) {
-            tmp_string += results.get(i).getFaculty() + results.get(i).getYear() + " " + results.get(i).getRem() + " seats remaining\n";
-        }
-
-        tmp_string += user.getUsername();
-
-        text6.setText(tmp_string);
-
-        user.setUsername("test");
-
-        /*
-        *   Do stuff to user
-        *   user.setCurrent(courses);
-         */
+        results_Adapter.addAll(tmp_results);
 
     }
     //This method determines if the user's database profile already has the selected course.
