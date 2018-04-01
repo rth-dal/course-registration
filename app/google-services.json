@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "484029185384",
-    "firebase_url": "https://course-registration-6014e.firebaseio.com",
-    "project_id": "course-registration-6014e",
-    "storage_bucket": "course-registration-6014e.appspot.com"
+    "project_number": "666225724051",
+    "firebase_url": "https://testcourseregistration.firebaseio.com",
+    "project_id": "testcourseregistration",
+    "storage_bucket": "testcourseregistration.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:484029185384:android:aab3783a7f69797f",
+        "mobilesdk_app_id": "1:666225724051:android:649ba1f48bb3692d",
         "android_client_info": {
-          "package_name": "com.dal_csci3130.course_registration"
+          "package_name": "com.example.brandonhussey.testcourseregistration"
         }
       },
       "oauth_client": [
         {
-          "client_id": "484029185384-g3veul70u9uf42jsolisdvlbgq4rg52v.apps.googleusercontent.com",
+          "client_id": "666225724051-2cmg3vjqn6qcbb101j01u8sbeapukknf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.dal_csci3130.course_registration",
-            "certificate_hash": "1d03109aa3bc7c58b2d6c9454d5c95c18894ff45"
+            "package_name": "com.example.brandonhussey.testcourseregistration",
+            "certificate_hash": "578f09aaf3f2de6092797d2d82ab656481f1f2d6"
           }
         },
         {
-          "client_id": "484029185384-o6m09gsrrcj710qvlspumtsu24s2m7lt.apps.googleusercontent.com",
+          "client_id": "666225724051-89esmkpl71icomg4pn0tpv3btkli0c4d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBI8T15w49QaY4fy1NiLfszZjWkZsXFmds"
+          "current_key": "AIzaSyBcqriUKjUxjZ892dSLM7b-7ulxWAcdCn0"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "484029185384-o6m09gsrrcj710qvlspumtsu24s2m7lt.apps.googleusercontent.com",
+              "client_id": "666225724051-89esmkpl71icomg4pn0tpv3btkli0c4d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

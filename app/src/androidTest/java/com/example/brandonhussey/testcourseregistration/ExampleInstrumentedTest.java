@@ -1,4 +1,4 @@
-package com.dal_csci3130.course_registration;
+package com.example.brandonhussey.testcourseregistration;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.dal_csci3130.course_registration", appContext.getPackageName());
+        assertEquals("com.example.brandonhussey.testcourseregistration", appContext.getPackageName());
     }
 }

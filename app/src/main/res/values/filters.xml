@@ -1,49 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="faculty_array">
-        <item>CSCI</item>
-        <item>MATH</item>
-    </string-array>
+        <string-array name="courses_array">
+            <item>Course</item>
+            <item>Math</item>
+        </string-array>
 
-    <string-array name="faculty_array2">
-        <item></item>
-        <item>BCS</item>
-        <item>BACS</item>
-        <item>BSC</item>
-        <item>BCOMM</item>
-        <item>BA</item>
-    </string-array>
-
-    <string-array name="major_array">
-        <item></item>
-        <item>Computer Science</item>
-        <item>Mathematics</item>
-        <item>Management</item>
-        <item>Political Science</item>
-        <item>Biology</item>
-    </string-array>
-
-    <string-array name="minor_array">
-        <item></item>
-        <item>Computer Science</item>
-        <item>Mathematics</item>
-        <item>Management</item>
-        <item>Political Science</item>
-        <item>Biology</item>
-    </string-array>
-
-    <string-array name="year_array">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>6</item>
-        <item>8</item>
-    </string-array>
-
-    <string-array name ="seat_array">
-        <item>0</item>
-    </string-array>
-
-</resources>
+    </resources>
