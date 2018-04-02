@@ -131,7 +131,8 @@ public class Course implements Serializable {
         result.put("subject", subject);
         result.put("term", term);
         result.put("time", time);
-        result.put("title", year);
+        result.put("title", title);
+        result.put("year", year);
 
         return result;
     }

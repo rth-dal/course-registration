@@ -57,7 +57,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Course> getCurrent() {
-        return completed;
+        return current;
     }
 
     public void setCurrent(ArrayList<Course> current) {
@@ -65,7 +65,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Course> getRemaining() {
-        return completed;
+        return remaining;
     }
 
     public void setRemaining(ArrayList<Course> remaining) {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">course-registration</string>
+    <string name="title_activity_current_courses">currentCourses</string>
 </resources>

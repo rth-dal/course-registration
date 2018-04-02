@@ -297,7 +297,6 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        user.setUsername("test");
         Intent intent = new Intent();
         intent.putExtra("user", user);
         setResult(0, intent);

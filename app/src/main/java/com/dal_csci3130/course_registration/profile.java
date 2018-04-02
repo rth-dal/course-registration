@@ -30,6 +30,7 @@ public class profile extends AppCompatActivity {
 
 
         Button classSearch = (Button) findViewById(R.id.classSearch);
+        Button currentCourses = (Button) findViewById(R.id.currentCourses);
         Spinner facultySpinner = (Spinner) findViewById(R.id.facultyspinner);
         Spinner majorSpinner = (Spinner) findViewById(R.id.majorspinner);
         Spinner minorSpinner = (Spinner) findViewById(R.id.minorspinner);
@@ -60,6 +61,18 @@ public class profile extends AppCompatActivity {
 
             }
         });
+
+        currentCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(profile.this, currentClasses.class);
+                intent.putExtra("user", user);
+                startActivityForResult(intent,0);
+
+            }
+        });
+
 
         facultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
