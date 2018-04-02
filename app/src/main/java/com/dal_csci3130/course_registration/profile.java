@@ -31,6 +31,9 @@ public class profile extends AppCompatActivity {
 
         Button classSearch = (Button) findViewById(R.id.classSearch);
         Button currentCourses = (Button) findViewById(R.id.currentCourses);
+        Button remainingCourses = (Button) findViewById(R.id.remainingCourses);
+        Button completedCourses = (Button) findViewById(R.id.completedCourses);
+
         Spinner facultySpinner = (Spinner) findViewById(R.id.facultyspinner);
         Spinner majorSpinner = (Spinner) findViewById(R.id.majorspinner);
         Spinner minorSpinner = (Spinner) findViewById(R.id.minorspinner);
@@ -67,6 +70,17 @@ public class profile extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(profile.this, currentClasses.class);
+                intent.putExtra("user", user);
+                startActivityForResult(intent,0);
+
+            }
+        });
+
+        completedCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(profile.this, compltedCourses.class);
                 intent.putExtra("user", user);
                 startActivityForResult(intent,0);
 
