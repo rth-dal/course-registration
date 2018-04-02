@@ -29,7 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".compltedCourses" />
-        <activity android:name=".currentClasses"></activity>
+        <activity android:name=".currentClasses" />
+        <activity android:name=".remainingCourses" />
+        <activity android:name=".remainingClasses"></activity>
     </application>
 
 </manifest>

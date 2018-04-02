@@ -87,6 +87,17 @@ public class profile extends AppCompatActivity {
             }
         });
 
+        remainingCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(profile.this, remainingClasses.class);
+                intent.putExtra("user", user);
+                startActivityForResult(intent,0);
+
+            }
+        });
+
 
         facultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
