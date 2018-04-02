@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class profile extends AppCompatActivity {
 
@@ -15,6 +21,9 @@ public class profile extends AppCompatActivity {
     public String Major;
     public String Minor;
     public User user;
+
+    ListView classList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +33,28 @@ public class profile extends AppCompatActivity {
         Intent i = getIntent();
         user = (User) i.getSerializableExtra("user");
 
+
+        TextView welcomeMessage = (TextView)findViewById(R.id.welcome);
+
+
+
+
         if (user != null) {
+
+            welcomeMessage.setText("Welcome, " + user.getFirst_name());
+
+            classList = (ListView)findViewById(R.id.classList);
+
+            ArrayList<Course> courseList = user.getCurrent();
+
+            ArrayList<String> test = new ArrayList<String>();
+            for(int j=0; j<courseList.size(); j++)  {
+                test.add(courseList.get(j).getTitle());
+            }
+
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, test);
+
+            classList.setAdapter(arrayAdapter);
 
         }
 

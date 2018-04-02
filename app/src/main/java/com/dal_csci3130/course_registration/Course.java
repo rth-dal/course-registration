@@ -319,7 +319,8 @@ public class Course implements Serializable {
         this.cap = cap;
     }
 
-
-
-    public String toString(){return this.title + " " + this.term + " " + this.act;}
+    @Override
+    public String toString(){
+        return (this.title + " " + this.term + " " + this.act);
+    }
 }
