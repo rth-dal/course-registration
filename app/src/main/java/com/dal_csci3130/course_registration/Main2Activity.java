@@ -91,6 +91,15 @@ public class Main2Activity extends AppCompatActivity {
                     case 1:
                         Filter1 = "MATH";
                         break;
+                    case 2:
+                        Filter1 = "MGMT";
+                        break;
+                    case 3:
+                        Filter1 = "POLI";
+                        break;
+                    case 4:
+                        Filter1 = "BIOL";
+                        break;
                 }
             }
 
@@ -117,10 +126,10 @@ public class Main2Activity extends AppCompatActivity {
                         Filter2 = "4";
                         break;
                     case 4:
-                        Filter2 = "5";
+                        Filter2 = "6";
                         break;
                     case 5:
-                        Filter2 = "6";
+                        Filter2 = "8";
                         break;
                 }
             }
@@ -177,10 +186,9 @@ public class Main2Activity extends AppCompatActivity {
         String year = (Filter2);
         String seats = (Filter3);
         String faculty = (Filter1);
+        results_Adapter.clear();
         ArrayList<Course> tmp_results = new ArrayList<Course>();
-
         filtered_search search_instance = new filtered_search();
-
 
         //((myApplication) this.getApplication()).setCourses(db.getCourselist());
 

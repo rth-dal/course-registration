@@ -50,17 +50,13 @@ public class profile extends AppCompatActivity {
         Major = majorSpinner.getSelectedItem().toString();
         Minor = minorSpinner.getSelectedItem().toString();
 
-
         classSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
                 Intent intent = new Intent(profile.this, Main2Activity.class);
                 intent.putExtra("user", user);
                 startActivityForResult(intent,0);
-
-
 
             }
         });
