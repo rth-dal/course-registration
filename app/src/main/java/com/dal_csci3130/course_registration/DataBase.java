@@ -9,6 +9,7 @@ public class DataBase implements Serializable {
 	private ArrayList<Course> courselist;
 	private ArrayList<User> userlist;
 
+    //Creates an array list for courses and users
 	public DataBase() {
 		courselist = new ArrayList<Course>();
 		userlist = new ArrayList<User>();
@@ -41,15 +42,15 @@ public class DataBase implements Serializable {
 		courselist.add(course7);
 		courselist.add(course8);
 
-		ArrayList<Course> current = new ArrayList<Course>();
+		ArrayList<Course> current = new ArrayList<>();
 		current.add(course1);
 		current.add(course3);
 
-		ArrayList<Course> completed = new ArrayList<Course>();
+		ArrayList<Course> completed = new ArrayList<>();
 		completed.add(course4);
 
 
-		ArrayList<Course> remaining = new ArrayList<Course>();
+		ArrayList<Course> remaining = new ArrayList<>();
 		remaining.add(course2);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
